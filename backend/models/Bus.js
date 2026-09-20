@@ -1,3 +1,5 @@
+//bus Schema updated
+
 const mongoose = require('mongoose');
 
 const TIME_REGEX = /^([01]\d|2[0-3]):([0-5]\d)$/; // 24-hour "HH:mm"
@@ -87,6 +89,10 @@ const busSchema = new mongoose.Schema(
       type: String,
       enum: ['scheduled', 'cancelled', 'completed'],
       default: 'scheduled',
+    },
+    bookedSeats: {
+      type: [Number],
+      default: [],
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
